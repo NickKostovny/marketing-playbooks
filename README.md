@@ -1,0 +1,37 @@
+# Marketing playbooks
+
+How I ship marketing work at a B2B software company, with the reasoning, the tools, and the reusable parts.
+
+I am the one-person marketing function at a bioprocess data company. Most of what I ship is built with Claude Code, a set of MCP connectors, and a handful of custom skills. The finished piece goes on the company blog or LinkedIn. This repo holds what those channels cannot show: the decisions, the checks, and the tooling.
+
+## How to read a playbook
+
+One folder per shipped piece. Every folder has the same shape.
+
+| Path | What it is |
+| --- | --- |
+| `README.md` | The ship log. Goal, gap, decisions, what review changed, result, what I would do differently. |
+| `tools-used.md` | Every MCP, skill, and script used, and what each one did. |
+| `prompts/` | Grader and generator prompts, sanitized so you can run them. |
+| `checklists/` | Review gates that came out of the work. |
+| `recipes/` | Step-by-step procedures for a tool or a platform. |
+| `tools/` | Small scripts. Each has its own README. |
+| `assets/` | Public artifacts only. |
+
+## Index
+
+| Shipped | Piece | Type |
+| --- | --- | --- |
+| 2026-09-14 | [What is OPC UA, and how do bioreactors use it?](2026-09-opc-ua-explainer/) | Definitional SEO explainer, product-grounded, reviewed by a PM, generated card thumbnail |
+
+## Rules I hold myself to here
+
+- Nothing from customer calls, internal knowledge bases, deal data, or private repos. Colleagues appear as roles, not names.
+- Every claim in a ship log is something I could show you the tool output for.
+- The reusable parts run as published. If a script needs a licensed asset, the public version swaps in a free one and says so.
+
+Start a new entry from [`TEMPLATE/`](TEMPLATE/).
+
+## License
+
+Code, prompts, and checklists are MIT licensed. Artifacts in `assets/` are shown for reference and belong to the company that published them.

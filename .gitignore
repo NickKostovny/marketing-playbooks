@@ -1,0 +1,5 @@
+.DS_Store
+**/tools/thumb-builder/thumb.html
+**/tools/thumb-builder/thumb.png
+**/tools/thumb-builder/thumb-at-card-size.png
+**/tools/thumb-builder/fonts/*.woff2

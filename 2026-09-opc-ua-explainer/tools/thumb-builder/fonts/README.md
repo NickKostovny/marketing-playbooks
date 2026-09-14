@@ -1,0 +1,1 @@
+Drop `.woff2` files here and name them in `FONT_FILES` at the top of `build.py`. None are committed: the original run used a licensed typeface, and the public build falls back to the system sans-serif.
