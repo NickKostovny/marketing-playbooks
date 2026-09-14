@@ -1,6 +1,6 @@
 # Marketing playbooks
 
-How I ship marketing work at a B2B software company, with the reasoning, the tools, and the reusable parts.
+How I ship marketing work in 2026, with the reasoning, the tools, and the reusable parts.
 
 I am the one-person marketing function at a bioprocess data company. Most of what I ship is built with Claude Code, a set of MCP connectors, and a handful of custom skills. The finished piece goes on the company blog or LinkedIn. This repo holds what those channels cannot show: the decisions, the checks, and the tooling.
 
