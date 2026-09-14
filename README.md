@@ -24,6 +24,10 @@ One folder per shipped piece. Every folder has the same shape.
 | --- | --- | --- |
 | 2026-09-14 | [What is OPC UA, and how do bioreactors use it?](2026-09-opc-ua-explainer/) | Definitional SEO explainer, product-grounded, reviewed by a PM, generated card thumbnail |
 
+## Skills library
+
+The playbooks run on a library of Claude skills: Markdown files with a trigger description and a body of decisions, tests, and constraints. The public subset lives in [`skills/`](skills/), 16 of them, grouped as the operating system for the work, marketing judgment, and thinking and people. Each playbook's `tools-used.md` names the ones it used.
+
 ## Rules I hold myself to here
 
 - Nothing from customer calls, internal knowledge bases, deal data, or private repos. Colleagues appear as roles, not names.
