@@ -1,6 +1,5 @@
 # Deciding what to write next: a competitor content-gap analysis from SEO data
 
-**Delivered:** September 9, 2026, as a 148-word Slack message to our CEO, with a data file behind it.
 **Type:** Decision memo. Nine competitor and adjacent domains, our own footprint, one keyword gap, five blog ideas scored on winnability, audience fit and strategic fit. Every number cites the API call that produced it.
 
 SEO tools usually arrive after a piece is written, to pick a title. This run used the SEO data before anything was written, to decide which product-adjacent pieces should ship at all. What competitors rank for and we do not is a map of the questions our buyers already type into a search box that nobody on our side has answered. That is a product-content decision, and it deserves data of the same quality as any other decision.
