@@ -23,6 +23,7 @@ One folder per shipped piece. Every folder has the same shape.
 | Shipped | Piece | Type |
 | --- | --- | --- |
 | 2026-09-14 | [What is OPC UA, and how do bioreactors use it?](2026-09-opc-ua-explainer/) | Definitional SEO explainer, product-grounded, reviewed by a PM, generated card thumbnail |
+| 2026-09-22 | [Rebuilding a conference one-pager on a new design system](2026-09-bpi-one-pager/) | Two-sided booth handout. Pattern-removal audit, one job per side, measured print output, print-shop bleed pass |
 | 2026-09-09 | [Deciding what to write next: a competitor content-gap analysis](2026-09-competitor-content-gap/) | Decision memo from SEO data. Nine competitors, one keyword gap, five ideas scored, every number cites its API call |
 
 ## Skills library
