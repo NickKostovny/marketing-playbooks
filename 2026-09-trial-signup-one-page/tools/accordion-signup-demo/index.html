@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accordion signup demo</title>
+<style>
+  :root {
+    --ink: #1c2b2f; --muted: #6b7a7e; --line: #e3e7e8; --line-strong: #c9d0d2;
+    --bg: #f6f7f7; --card: #fff; --accent: #b4442c; --pick: #e8eeee;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink);
+  }
+  body { margin: 0; background: var(--bg); }
+  .page { max-width: 1000px; margin: 0 auto; padding: 40px 24px 56px; }
+  h1 { text-align: center; font-weight: 400; font-size: clamp(28px, 4vw, 38px); margin: 0 0 10px; }
+  .dek { text-align: center; color: var(--muted); margin: 0 0 28px; }
+  .card { display: grid; grid-template-columns: minmax(0, 47%) minmax(0, 53%); background: var(--card);
+          border: 1px solid var(--line); border-radius: 14px; overflow: hidden; min-height: 440px; }
+  .form { padding: 32px; min-width: 0; }
+  /* Pinned to the top so it does not ride up and down as steps open. */
+  .visual { background: var(--bg); border-left: 1px solid var(--line); display: flex; align-items: flex-start;
+            justify-content: center; padding: 0 18px 18px; }
+  .visual-box { margin-top: 0; width: 100%; height: 300px; border: 1px solid var(--line-strong); border-top: 0;
+                border-radius: 0 0 12px 12px; display: grid; place-items: center; color: var(--muted); background: #fff; }
+  h2 { font-weight: 500; font-size: 24px; margin: 0 0 14px; }
+
+  .acc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .item { border-bottom: 1px solid var(--line); }
+  .item:last-child { border-bottom: 0; }
+  .head { width: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 12px; padding: 15px 0;
+          background: none; border: 0; border-radius: 8px; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+  .head:disabled { color: var(--muted); cursor: default; }
+  .head:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .num { flex: none; width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--line-strong);
+         display: grid; place-items: center; font-size: 12px; }
+  .item[data-state="done"] .num { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .title { flex: 1 1 0; min-width: 0; font-weight: 500; }
+  /* The answer sits under its question and wraps, rather than being cut off beside it. */
+  .val { flex: 0 1 calc(100% - 36px); margin-left: 36px; font-size: 14px; color: var(--muted); }
+
+  /* Height animates on grid rows, never measured in script. */
+  .panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+  .item[data-state="open"] .panel { grid-template-rows: 1fr; }
+  /* Side padding, cancelled by the margin, keeps focus rings from being clipped. */
+  .inner { overflow: hidden; min-height: 0; margin: 0 -5px; padding: 0 5px; }
+  .body { padding: 4px 0 18px 36px; }
+  .pills { display: flex; flex-wrap: wrap; gap: 7px; }
+  .pill { font: inherit; font-size: 14px; background: #fff; border: 1px solid var(--line-strong);
+          border-radius: 6px; padding: 8px 14px; cursor: pointer; }
+  .pill[aria-pressed="true"] { background: var(--pick); border-color: var(--ink); font-weight: 500; }
+
+  .label { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+  .req { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+  input[type="email"] { width: 100%; box-sizing: border-box; font: inherit; padding: 10px 13px;
+          border: 1px solid var(--line-strong); border-radius: 8px; }
+  /* Script moves focus here; give it a ring of its own, because browsers often skip theirs for script focus. */
+  input[type="email"]:focus { outline: 2px solid var(--ink); outline-offset: 1px; border-color: var(--ink); }
+  input[aria-invalid="true"] { border-color: var(--accent); }
+  .hint { font-size: 12px; color: var(--accent); margin: 6px 0 0; }
+  .submit { margin-top: 14px; width: 100%; font: inherit; font-weight: 500; padding: 12px; border: 0;
+            border-radius: 8px; background: var(--ink); color: #fff; cursor: pointer; }
+  .submit:disabled { opacity: .4; cursor: default; }
+  .terms { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--muted);
+           margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); cursor: pointer; }
+  .done { display: none; }
+  .log { font: 12px/1.5 ui-monospace, monospace; white-space: pre-wrap; background: #fff; border: 1px solid var(--line);
+         border-radius: 8px; padding: 12px; margin-top: 24px; color: var(--muted); overflow-wrap: anywhere; }
+
+  @media (max-width: 780px) { .card { grid-template-columns: minmax(0, 1fr); } .visual { display: none; } .form { padding: 26px 22px; } }
+  @media (max-width: 480px) { .body { padding-left: 0; } }
+  @media (prefers-reduced-motion: reduce) { .panel { transition: none; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <h1>Try the product free for 2 weeks</h1>
+  <p class="dek">A sandbox with sample data shaped like your process.</p>
+  <div class="card">
+    <div class="form">
+      <div id="flow">
+        <h2>Set up sandbox</h2>
+        <ol class="acc" id="acc"></ol>
+      </div>
+      <div class="done" id="done">
+        <h2>We've got your request</h2>
+        <p>A person builds your sandbox by hand. We will email you at <b id="done-email"></b> within 1 to 3 business days.</p>
+        <button class="submit" id="restart" type="button">Start over</button>
+      </div>
+    </div>
+    <div class="visual"><div class="visual-box" id="visual">Product visual</div></div>
+  </div>
+  <div class="log" id="log" aria-live="polite">Records this page would send appear here.</div>
+</main>
+
+<script>
+/* Two questions, then the email. Swap in your own options. */
+const OPTIONS = {
+  'Option A': ['Scope 1', 'Scope 2', 'Scope 3'],
+  'Option B': ['Scope 1', 'Scope 3'],
+  'A much longer option name, to test wrapping': ['Scope 2', 'Scope 3'],
+};
+const STEPS = [
+  { key: 'q1', title: 'What are you working on?' },
+  { key: 'q2', title: 'Where do you spend most of your time?' },
+  { key: 'login', title: 'Log in' },
+];
+
+const state = { open: 'q1', q1: null, q2: null, email: '', emailFocused: false, agreed: false, startedFor: '' };
+const $ = (id) => document.getElementById(id);
+const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function log(stage) {
+  /* Terms acceptance is recorded only on the final submission, never on the
+     partial record sent when the email field loses focus. */
+  const record = { stage, email: state.email.trim(), q1: state.q1, q2: state.q2,
+                   termsAccepted: stage === 'completed' && state.agreed };
+  const el = $('log');
+  el.textContent = JSON.stringify(record) + '\n' + (el.dataset.used ? el.textContent : '');
+  el.dataset.used = '1';
+}
+
+const emailOk = () => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(state.email.trim());
+const unlocked = (k) => k === 'q1' || (k === 'q2' && !!state.q1) || (k === 'login' && !!state.q1 && !!state.q2);
+const answer = (k) => (k === 'login' ? null : state[k]);
+/* open, done, todo (reachable, unanswered, folded: must stay clickable), next, locked */
+function stateOf(k) {
+  if (state.open === k) return 'open';
+  if (!unlocked(k)) return 'locked';
+  if (k === 'login') return 'next';
+  return answer(k) ? 'done' : 'todo';
+}
+
+const pills = (k, list) => list.map((o) =>
+  `<button type="button" class="pill" aria-pressed="false" data-k="${k}" data-v="${esc(o)}">${esc(o)}</button>`).join('');
+
+/* Build the list once. Later changes only update attributes, so the
+   grid-row transition can animate between the old and new state. */
+function build() {
+  $('acc').innerHTML = STEPS.map((s, i) => `
+    <li class="item" id="i-${s.key}" data-state="locked">
+      <h3 style="margin:0;font:inherit"><button type="button" class="head" id="h-${s.key}" data-toggle="${s.key}"
+          aria-controls="p-${s.key}" aria-expanded="false">
+        <span class="num" aria-hidden="true" data-n="${i + 1}"></span>
+        <span class="title">${s.title}</span>
+        <span class="val" hidden></span>
+      </button></h3>
+      <div class="panel" id="p-${s.key}" role="region" aria-labelledby="h-${s.key}" inert>
+        <div class="inner"><div class="body">${
+          s.key === 'q1' ? `<div class="pills">${pills('q1', Object.keys(OPTIONS))}</div>`
+          : s.key === 'q2' ? '<div class="pills" id="q2-pills"></div>'
+          : `<label class="label" for="email">Work email <span class="req">required</span></label>
+             <input id="email" type="email" autocomplete="email" placeholder="you@company.com">
+             <p class="hint" id="email-hint" hidden></p>
+             <button type="button" class="submit" id="submit" disabled>Get sandbox link</button>
+             <label class="terms"><input type="checkbox" id="agree"> <span>I agree to the terms of service.</span></label>`
+        }</div></div>
+      </div>
+    </li>`).join('');
+}
+
+function update() {
+  for (const s of STEPS) {
+    const st = stateOf(s.key);
+    const head = $('h-' + s.key), val = head.querySelector('.val'), num = head.querySelector('.num');
+    $('i-' + s.key).dataset.state = st;
+    head.setAttribute('aria-expanded', String(st === 'open'));
+    head.disabled = st === 'locked';
+    $('p-' + s.key).inert = st !== 'open';
+    num.textContent = st === 'done' ? '✓' : num.dataset.n;
+    const a = st === 'done' ? answer(s.key) : null;
+    val.hidden = !a; val.textContent = a || '';
+  }
+  for (const b of document.querySelectorAll('.pill')) b.setAttribute('aria-pressed', String(state[b.dataset.k] === b.dataset.v));
+  syncEmail();
+}
+
+function open(k, focus = true) {
+  state.open = k;
+  update();
+  if (!focus || !k) return;
+  /* preventScroll: the panel is still unfolding, and focus inside an
+     overflow-hidden box would otherwise scroll the box itself. */
+  if (k === 'login') { $('email').focus({ preventScroll: true }); return; }
+  const panel = $('p-' + k);
+  (panel.querySelector('[aria-pressed="true"]') || panel.querySelector('button'))?.focus({ preventScroll: true });
+}
+
+function pick(k, v) {
+  if (k === 'q1') {
+    if (state.q1 !== v) { state.q1 = v; state.q2 = null; $('q2-pills').innerHTML = pills('q2', OPTIONS[v]); }
+    $('visual').textContent = 'Product visual for: ' + v;
+    open('q2');
+  } else {
+    state.q2 = v;
+    open('login'); /* no extra click to open the last step */
+  }
+}
+
+function bankEmail() {
+  const addr = state.email.trim().toLowerCase();
+  if (!emailOk() || state.startedFor === addr) return;
+  state.startedFor = addr;
+  log('started');
+}
+
+/* The error waits until the visitor leaves the field, and clears when they return. */
+function syncEmail() {
+  const email = $('email'), hint = $('email-hint');
+  const invalid = state.email.trim().length > 0 && !state.emailFocused && !emailOk();
+  email.setAttribute('aria-invalid', String(invalid));
+  if (invalid) email.setAttribute('aria-describedby', 'email-hint'); else email.removeAttribute('aria-describedby');
+  hint.hidden = !invalid;
+  hint.textContent = invalid ? 'That does not look like an email address yet.' : '';
+  $('submit').disabled = !(emailOk() && state.q1 && state.q2 && state.agreed);
+}
+
+build();
+const acc = $('acc');
+acc.addEventListener('click', (e) => {
+  const pill = e.target.closest('.pill');
+  if (pill) return pick(pill.dataset.k, pill.dataset.v);
+  const head = e.target.closest('[data-toggle]');
+  if (head) return open(state.open === head.dataset.toggle ? null : head.dataset.toggle);
+  if (e.target.id === 'submit') {
+    log('completed');
+    $('flow').style.display = 'none'; $('done').style.display = 'block';
+    $('done-email').textContent = state.email.trim();
+  }
+});
+acc.addEventListener('input', (e) => { if (e.target.id === 'email') { state.email = e.target.value; syncEmail(); } });
+acc.addEventListener('change', (e) => { if (e.target.id === 'agree') { state.agreed = e.target.checked; syncEmail(); } });
+acc.addEventListener('focusin', (e) => { if (e.target.id === 'email') { state.emailFocused = true; syncEmail(); } });
+acc.addEventListener('focusout', (e) => { if (e.target.id === 'email') { state.emailFocused = false; syncEmail(); bankEmail(); } });
+$('restart').addEventListener('click', () => {
+  state.q1 = null; state.q2 = null; $('q2-pills').innerHTML = '';
+  $('visual').textContent = 'Product visual';
+  $('done').style.display = 'none'; $('flow').style.display = 'block';
+  open('q1');
+});
+update();
+</script>
+</body>
+</html>
