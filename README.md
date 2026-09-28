@@ -22,6 +22,7 @@ One folder per shipped piece. Every folder has the same shape.
 
 | Shipped | Piece | Type |
 | --- | --- | --- |
+| 2026-09-28 | [One primary at the top: a trial bar, a demo button, and who gets the nav](2026-09-one-primary-at-the-top/) | Top-of-page CTA decision. Clicks against outcomes, 21 peer sites, a power check that ruled out an A/B test, a static-site bar with a CSS-only nav swap, four positions in one day |
 | 2026-09-24 | [Rebuilding a free-trial signup: one page, product first, email last](2026-09-trial-signup-one-page/) | Conversion-flow redesign. Two pages into one, accordion steps, a four-lens adversarial review before merge, fixes from a live-page review |
 | 2026-09-18 | [Turning old LinkedIn ad engagement into an SDR handoff without burning enrichment credits](2026-09-linkedin-ad-engagers-to-sdr/) | Sales-enablement data. 18 ads, 222 people, two free gates before any paid lookup, seven lookups instead of two hundred, one workbook with a Read me tab |
 | 2026-09-23 | [Gating a webinar recording behind a work-email form](2026-09-gated-webinar-recording/) | Gated video in the site's video library. Unlock on the page, fail-closed capture to an isolated base, no CAPTCHA spam posture, domain-locked embed, seven word-timed clips |
