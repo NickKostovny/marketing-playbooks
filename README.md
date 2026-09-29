@@ -22,6 +22,7 @@ One folder per shipped piece. Every folder has the same shape.
 
 | Shipped | Piece | Type |
 | --- | --- | --- |
+| 2026-09-29 | [What is Cpk, and how do biologics teams use it?](2026-09-cpk-explainer/) | Definitional SEO explainer picked by a SERP softness map. A claim audit table, four review gates, one statistics error caught before ship, a which-sigma checklist, generated card thumbnail |
 | 2026-09-28 | [One primary at the top: a trial bar, a demo button, and who gets the nav](2026-09-one-primary-at-the-top/) | Top-of-page CTA decision. Clicks against outcomes, 21 peer sites, a power check that ruled out an A/B test, a static-site bar with a CSS-only nav swap, four positions in one day |
 | 2026-09-24 | [Rebuilding a free-trial signup: one page, product first, email last](2026-09-trial-signup-one-page/) | Conversion-flow redesign. Two pages into one, accordion steps, a four-lens adversarial review before merge, fixes from a live-page review |
 | 2026-09-18 | [Turning old LinkedIn ad engagement into an SDR handoff without burning enrichment credits](2026-09-linkedin-ad-engagers-to-sdr/) | Sales-enablement data. 18 ads, 222 people, two free gates before any paid lookup, seven lookups instead of two hundred, one workbook with a Read me tab |
