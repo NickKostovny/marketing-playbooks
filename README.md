@@ -30,6 +30,7 @@ One folder per shipped piece. Every folder has the same shape.
 | 2026-09-14 | [What is OPC UA, and how do bioreactors use it?](2026-09-opc-ua-explainer/) | Definitional SEO explainer, product-grounded, reviewed by a PM, generated card thumbnail |
 | 2026-09-22 | [Rebuilding a conference one-pager on a new design system](2026-09-bpi-one-pager/) | Two-sided booth handout. Pattern-removal audit, one job per side, measured print output, print-shop bleed pass |
 | 2026-09-09 | [Deciding what to write next: a competitor content-gap analysis](2026-09-competitor-content-gap/) | Decision memo from SEO data. Nine competitors, one keyword gap, five ideas scored, every number cites its API call |
+| 2026-10-12 | [An SEO audit and a post refresh](2026-10-seo-audit-and-refresh/) | Audit to one action, hand-verified findings, a refresh that moved publish dates (and the fix), a tested structured-data change, a monthly tracking task with a prompt |
 
 ## Skills library
 
