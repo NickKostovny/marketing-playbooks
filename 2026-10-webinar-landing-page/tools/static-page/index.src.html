@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>[The title as the publication wrote it]</title>
+<style>
+/* ---- [your company] Design System v2, light theme. v2 of this page: hero + speakers only (Oct 15 2026 handoff).
+     The long v1 page (what you'll learn, point of view, bios, closing band, footer) is kept in index.src.v1-long.html. ---- */
+:root {
+  --surface: #f8f9f9;
+  --surface-raised: #ffffff;
+  --surface-sunken: #edefef;
+  --ink: #1c363c;
+  --ink-secondary: #4a5d61;
+  --ink-muted: #5c6b6e;
+  --line: rgba(28,54,60,0.10);
+  --action: #1c363c;
+  --action-hover: #2a4a52;
+  --on-action: #ffffff;
+  --focus: #1c363c;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --content-max: 1100px;
+  --gutter: 32px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { font-family: var(--font); font-weight: 400; font-size: 15px; line-height: 1.65; color: var(--ink); background: var(--surface); -webkit-font-smoothing: antialiased; }
+a { color: var(--ink); }
+a:hover { color: var(--ink-secondary); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+svg, img { display: block; }
+h1, h2 { font-weight: 400; color: var(--ink); }
+.wrap { max-width: var(--content-max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+@media (max-width: 640px) { :root { --gutter: 20px; } }
+
+/* Header */
+.header { border-bottom: 1px solid var(--line); background: var(--surface); }
+.header .wrap { height: 61px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.wordmark { display: inline-block; color: var(--ink); padding: 12px 0; }
+.wordmark svg { width: 95px; height: 25px; }
+.wordmark:hover { color: var(--ink-secondary); }
+.header-label { font-size: 13px; font-weight: 500; color: var(--ink-secondary); }
+
+/* Hero */
+.hero { padding: 48px 0; }
+.hero-grid { display: grid; grid-template-columns: 1fr 400px; gap: 64px; align-items: stretch; }
+.hero-right { display: flex; flex-direction: column; gap: 24px; }
+.hero-figure { position: relative; flex: 1; min-height: 140px; }
+@media (max-width: 900px) { .hero-figure { display: none; } }
+.eyebrow { font-size: 13px; font-weight: 500; color: var(--ink-secondary); margin-bottom: 12px; }
+.h1 { font-size: 56px; line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; max-width: 620px; }
+.lead { margin-top: 20px; font-size: 17px; line-height: 1.65; color: var(--ink-secondary); max-width: 540px; }
+.facts { margin-top: 24px; display: flex; flex-wrap: wrap; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-raised); max-width: 540px; }
+.fact { flex: 1 1 120px; padding: 16px 20px; border-right: 1px solid var(--line); }
+.fact:last-child { border-right: 0; }
+.fact-label { font-size: 12px; color: var(--ink-muted); }
+.fact-value { font-size: 15px; font-weight: 500; margin-top: 4px; }
+.card { background: var(--surface-raised); border: 1px solid var(--line); border-radius: 12px; padding: 32px; display: flex; flex-direction: column; gap: 20px; }
+.card h2 { font-size: 22px; line-height: 1.3; letter-spacing: -0.01em; }
+.card .note { margin-top: 8px; font-size: 14px; line-height: 1.65; color: var(--ink-secondary); }
+.button { font-family: var(--font); font-size: 15px; font-weight: 500; line-height: 1.3; padding: 14px 24px; border-radius: 8px; background: var(--action); color: var(--on-action); text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background-color 150ms ease; }
+.button:hover { background: var(--action-hover); color: var(--on-action); }
+.caption { font-size: 12px; line-height: 1.5; color: var(--ink-muted); }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 640px) { .h1 { font-size: 36px; } }
+
+/* Speakers */
+.speakers { padding: 48px 0; background: var(--surface-raised); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.speakers h2 { font-size: 30px; line-height: 1.25; letter-spacing: -0.015em; }
+.speakers .lead { margin-top: 8px; }
+.spk-grid { margin-top: 24px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: repeat(4, 1fr); }
+.spk { padding: 24px 20px; display: flex; flex-direction: column; gap: 16px; border-right: 1px solid var(--line); }
+.spk:last-child { border-right: 0; }
+.photo { width: 96px; height: 96px; border-radius: 8px; background: var(--surface-sunken); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--ink-muted); text-align: center; overflow: hidden; }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.spk .name { font-size: 18px; line-height: 1.3; }
+.spk .title { font-size: 14px; line-height: 1.65; color: var(--ink-secondary); margin-top: 4px; }
+.spk .company { font-size: 13px; font-weight: 500; margin-top: 4px; }
+.spk .bio { font-size: 14px; line-height: 1.65; color: var(--ink-secondary); }
+.spk .bio p + p { margin-top: 10px; }
+@media (max-width: 900px) and (min-width: 641px) {
+  .spk-grid { grid-template-columns: repeat(2, 1fr); }
+  .spk:nth-child(2) { border-right: 0; }
+  .spk:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 640px) {
+  .spk-grid { grid-template-columns: 1fr; }
+  .spk { border-right: 0; border-bottom: 1px solid var(--line); }
+  .spk:last-child { border-bottom: 0; }
+}
+
+/* Demo section (homepage [your product] widget, isolated) */
+.demo { padding: 48px 0; }
+.demo h2 { font-size: 30px; line-height: 1.25; letter-spacing: -0.015em; max-width: 640px; }
+.demo .lead { margin-top: 12px; }
+.demo-body p + p { margin-top: 12px; }
+.demo-actions { margin-top: 24px; }
+.button-inline { display: inline-flex; }
+.demo-actions .caption { margin-top: 10px; }
+.demo-frame { margin-top: 32px; }
+.demo-frame iframe { display: block; width: 100%; height: 576px; border: 0; background: transparent; }
+.demo-caption { margin-top: 12px; font-size: 13px; line-height: 1.5; color: var(--ink-muted); max-width: 640px; }
+@media (max-width: 640px) { .demo-frame iframe { height: 820px; } }
+</style>
+<!--FONTS-->
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap">
+    <a class="wordmark" href="https://www.invertbio.com" aria-label="[Your company]">
+      <!--WORDMARK-->
+    </a>
+    <span class="header-label">A [publication] webinar</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Live panel with [sponsor], [vendor A], [vendor B] and [your company]</p>
+        <h1 class="h1">[The title as the publication wrote it]</h1>
+        <p class="lead">[The publication's one-sentence description of the panel.]</p>
+        <div class="facts">
+          <div class="fact"><div class="fact-label">Date</div><div class="fact-value">[Day, Mon D, YYYY]</div></div>
+          <div class="fact"><div class="fact-label">Time</div><div class="fact-value">[Time + TZ]</div></div>
+          <div class="fact"><div class="fact-label">Length</div><div class="fact-value">60 minutes</div></div>
+        </div>
+      </div>
+      <div class="hero-right">
+      <div class="card">
+        <div>
+          <h2>Save your seat</h2>
+          <p class="note">Free to attend. Can’t make it live? Register and [publication] will send you the recording.</p>
+        </div>
+        <a class="button" href="[REGISTRATION URL]">Register free
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p class="caption">Registration opens on [publication].</p>
+      </div>
+      <!-- Hero figure slot: the shipped page mounted a canvas here (see recipes/design-system-handoffs.md). -->
+      </div>
+    </div>
+  </section>
+
+  <section class="speakers">
+    <div class="wrap">
+      <h2>On the panel</h2>
+      <div class="spk-grid">
+        <div class="spk">
+          <div class="photo" aria-hidden="true">Photo</div>
+          <div>
+            <div class="name">[Speaker 1]</div>
+            <div class="company">[Company]</div>
+            <div class="title">[Title]</div>
+          </div>
+          <div class="bio">
+            <p>[Bio as the publication lists it.]</p>
+          </div>
+        </div>
+        <div class="spk">
+          <div class="photo" aria-hidden="true">Photo</div>
+          <div>
+            <div class="name">[Speaker 2]</div>
+            <div class="company">[Company]</div>
+            <div class="title">[Title]</div>
+          </div>
+          <div class="bio">
+            <p>[Bio as the publication lists it.]</p>
+          </div>
+        </div>
+        <div class="spk">
+          <div class="photo" aria-hidden="true">Photo</div>
+          <div>
+            <div class="name">[Speaker 3]</div>
+            <div class="company">[Company]</div>
+            <div class="title">[Title]</div>
+          </div>
+          <div class="bio">
+            <p>[Bio as the publication lists it.]</p>
+          </div>
+        </div>
+        <div class="spk">
+          <div class="photo" aria-hidden="true">Photo</div>
+          <div>
+            <div class="name">[Speaker 4]</div>
+            <div class="company">[Company]</div>
+            <div class="title">[Title]</div>
+          </div>
+          <div class="bio">
+            <p>[Bio as the publication lists it.]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product slot: the shipped page put a scroll-started demo iframe, a plain-English heading, three short paragraphs and a Book a demo button here. -->
+</main>
+</body>
+</html>

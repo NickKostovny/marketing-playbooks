@@ -20,17 +20,18 @@ One folder per shipped piece. Every folder has the same shape.
 
 ## Index
 
-| Shipped | Piece | Type |
-| --- | --- | --- |
-| 2026-09-29 | [What is Cpk, and how do biologics teams use it?](2026-09-cpk-explainer/) | Definitional SEO explainer picked by a SERP softness map. A claim audit table, four review gates, one statistics error caught before ship, a which-sigma checklist, generated card thumbnail |
-| 2026-09-28 | [One primary at the top: a trial bar, a demo button, and who gets the nav](2026-09-one-primary-at-the-top/) | Top-of-page CTA decision. Clicks against outcomes, 21 peer sites, a power check that ruled out an A/B test, a static-site bar with a CSS-only nav swap, four positions in one day |
-| 2026-09-24 | [Rebuilding a free-trial signup: one page, product first, email last](2026-09-trial-signup-one-page/) | Conversion-flow redesign. Two pages into one, accordion steps, a four-lens adversarial review before merge, fixes from a live-page review |
-| 2026-09-18 | [Turning old LinkedIn ad engagement into an SDR handoff without burning enrichment credits](2026-09-linkedin-ad-engagers-to-sdr/) | Sales-enablement data. 18 ads, 222 people, two free gates before any paid lookup, seven lookups instead of two hundred, one workbook with a Read me tab |
-| 2026-09-23 | [Gating a webinar recording behind a work-email form](2026-09-gated-webinar-recording/) | Gated video in the site's video library. Unlock on the page, fail-closed capture to an isolated base, no CAPTCHA spam posture, domain-locked embed, seven word-timed clips |
-| 2026-09-14 | [What is OPC UA, and how do bioreactors use it?](2026-09-opc-ua-explainer/) | Definitional SEO explainer, product-grounded, reviewed by a PM, generated card thumbnail |
-| 2026-09-22 | [Rebuilding a conference one-pager on a new design system](2026-09-bpi-one-pager/) | Two-sided booth handout. Pattern-removal audit, one job per side, measured print output, print-shop bleed pass |
-| 2026-09-09 | [Deciding what to write next: a competitor content-gap analysis](2026-09-competitor-content-gap/) | Decision memo from SEO data. Nine competitors, one keyword gap, five ideas scored, every number cites its API call |
-| 2026-10-12 | [An SEO audit and a post refresh](2026-10-seo-audit-and-refresh/) | Audit to one action, hand-verified findings, a refresh that moved publish dates (and the fix), a tested structured-data change, a monthly tracking task with a prompt |
+| Shipped | Piece | Type | Outcome |
+| --- | --- | --- | --- |
+| 2026-10-15 | [Shipping a webinar landing page: "Reengineering the economics of autologous cell therapy"](2026-10-webinar-landing-page/) | Registration page for a panel the company sits on. Cut from eight sections to three on a design handoff, white space filled from existing product assets, the same page moved across four design contexts in a day, five production merges on a deploy-check loop | None yet. Registrations are counted by the publication; register and demo clicks countable from 2026-10-15, first read 2026-10-28 |
+| 2026-09-29 | [What is Cpk, and how do biologics teams use it?](2026-09-cpk-explainer/) | Definitional SEO explainer picked by a SERP softness map. A claim audit table, four review gates, one statistics error caught before ship, a which-sigma checklist, generated card thumbnail | None yet |
+| 2026-09-28 | [One primary at the top: a trial bar, a demo button, and who gets the nav](2026-09-one-primary-at-the-top/) | Top-of-page CTA decision. Clicks against outcomes, 21 peer sites, a power check that ruled out an A/B test, a static-site bar with a CSS-only nav swap, four positions in one day | None yet |
+| 2026-09-24 | [Rebuilding a free-trial signup: one page, product first, email last](2026-09-trial-signup-one-page/) | Conversion-flow redesign. Two pages into one, accordion steps, a four-lens adversarial review before merge, fixes from a live-page review | None yet |
+| 2026-09-18 | [Turning old LinkedIn ad engagement into an SDR handoff without burning enrichment credits](2026-09-linkedin-ad-engagers-to-sdr/) | Sales-enablement data. 18 ads, 222 people, two free gates before any paid lookup, seven lookups instead of two hundred, one workbook with a Read me tab | None yet |
+| 2026-09-23 | [Gating a webinar recording behind a work-email form](2026-09-gated-webinar-recording/) | Gated video in the site's video library. Unlock on the page, fail-closed capture to an isolated base, no CAPTCHA spam posture, domain-locked embed, seven word-timed clips | None yet |
+| 2026-09-14 | [What is OPC UA, and how do bioreactors use it?](2026-09-opc-ua-explainer/) | Definitional SEO explainer, product-grounded, reviewed by a PM, generated card thumbnail | None yet |
+| 2026-09-22 | [Rebuilding a conference one-pager on a new design system](2026-09-bpi-one-pager/) | Two-sided booth handout. Pattern-removal audit, one job per side, measured print output, print-shop bleed pass | None yet |
+| 2026-09-09 | [Deciding what to write next: a competitor content-gap analysis](2026-09-competitor-content-gap/) | Decision memo from SEO data. Nine competitors, one keyword gap, five ideas scored, every number cites its API call | None yet |
+| 2026-10-12 | [An SEO audit and a post refresh](2026-10-seo-audit-and-refresh/) | Audit to one action, hand-verified findings, a refresh that moved publish dates (and the fix), a tested structured-data change, a monthly tracking task with a prompt | None yet |
 
 ## Skills library
 
